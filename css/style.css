@@ -8,20 +8,29 @@ Dark green: #28b485
 */
 
 /* Universal CSS */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
   /* Inheritance */
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+
+  box-sizing: border-box;
 }
 
 .header {
@@ -40,12 +49,12 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -59,16 +68,16 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 
   backface-visibility: hidden; /*fixes shaking esp. w/ animation or 3d effects*/
 }
 
 .heading-primary-head {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   animation-name: moveFromLeft;
   animation-duration: 1.2s;
@@ -81,8 +90,8 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
-  letter-spacing: 17.4px;
+  font-size: 2rem;
+  letter-spacing: 1.74rem;
   font-weight: 700;
 
   /* animation-name: moveFromRight;
@@ -96,11 +105,11 @@ body {
   /* initial state */
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   /* end state */
@@ -114,11 +123,11 @@ body {
   /* initial state */
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   /* end state */
@@ -132,7 +141,7 @@ body {
   /* initial state */
   0% {
     opacity: 0; /* This will apply immediately due to "backwards" */
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% {
@@ -149,21 +158,22 @@ body {
   display: inline-block;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   border-radius: 100px;
 
   transition: all 0.2s;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 /* while clicking */
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -176,7 +186,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -198,3 +208,5 @@ body {
 
   animation-fill-mode: backwards; /* Applies the first keyframe’s styles before the animation starts, even during the delay */
 }
+
+/* NOTE: Rely more on specificity than on the order of selectors */
