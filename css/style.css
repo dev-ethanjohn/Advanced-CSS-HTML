@@ -58,9 +58,23 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  backface-visibility: hidden; /*fixes shaking esp. w/ animation or 3d effects*/
+}
+
+.heading-primary-head {
+  display: block;
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  animation-name: moveFromLeft;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-out;
+
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation */
+  /* animation-delay: 3s; */
+  /* animation-iteration-count: 3; */
 }
 
 .heading-primary-sub {
@@ -68,4 +82,46 @@ body {
   font-size: 20px;
   letter-spacing: 17.4px;
   font-weight: 700;
+
+  /* animation-name: moveFromRight;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-out; */
+  animation: moveFromRight 1.2s ease-in-out;
+}
+
+/*NOTE: Animation */
+@keyframes moveFromLeft {
+  /* initial state */
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  /* end state */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveFromRight {
+  /* initial state */
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  /* end state */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
