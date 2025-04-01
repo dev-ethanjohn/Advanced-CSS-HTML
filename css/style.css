@@ -53,11 +53,13 @@ body {
   top: 44%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+  margin-bottom: 60px;
 
   backface-visibility: hidden; /*fixes shaking esp. w/ animation or 3d effects*/
 }
@@ -124,4 +126,75 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes moveFromButton {
+  /* initial state */
+  0% {
+    opacity: 0; /* This will apply immediately due to "backwards" */
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* pseudo class */
+/* initial state */
+.btn:link,
+.btn:visited {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 100px;
+
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* while clicking */
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-hero {
+  animation: moveFromButton 0.5s ease-out 0.75s;
+
+  animation-fill-mode: backwards; /* Applies the first keyframe’s styles before the animation starts, even during the delay */
 }
