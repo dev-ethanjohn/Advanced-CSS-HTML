@@ -47,17 +47,17 @@ body {
   align-items: center; */
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 44%;
   left: 50%;
@@ -73,7 +73,7 @@ body {
   backface-visibility: hidden; /*fixes shaking esp. w/ animation or 3d effects*/
 }
 
-.heading-primary-head {
+.heading-primary--head {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -88,7 +88,7 @@ body {
   /* animation-iteration-count: 3; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   letter-spacing: 1.74rem;
@@ -176,7 +176,7 @@ body {
   box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -194,7 +194,7 @@ body {
   transition: all 0.3s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -203,10 +203,24 @@ body {
   opacity: 0;
 }
 
-.btn-hero {
+.btn--hero {
   animation: moveFromButton 0.5s ease-out 0.75s;
 
   animation-fill-mode: backwards; /* Applies the first keyframe’s styles before the animation starts, even during the delay */
 }
 
 /* NOTE: Rely more on specificity than on the order of selectors */
+/* BEM */
+/* Block -  standalone component that is meaningful on its own
+Element - part of a block that has no standalone meaning
+Modifier - a diff version of a block or an element */
+
+/* Architecture */
+/* 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stysheet.
+base/
+components/
+layout/ 
+pages/
+themes/ 
+abstracts/
+vendors/ */
