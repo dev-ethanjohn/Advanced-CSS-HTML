@@ -1,0 +1,251 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+
+/* Universal CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  /* Inheritance */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+
+  box-sizing: border-box;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.7),
+      rgba($color-primary-dark, 0.7)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.header__logo {
+  height: 3.5rem;
+}
+
+.header__text-box {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+
+  backface-visibility: hidden; /*fixes shaking esp. w/ animation or 3d effects*/
+}
+
+.heading-primary--head {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+
+  animation-name: moveFromLeft;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-out;
+
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation */
+  /* animation-delay: 3s; */
+  /* animation-iteration-count: 3; */
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  letter-spacing: 1.74rem;
+  font-weight: 700;
+
+  /* animation-name: moveFromRight;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-out; */
+  animation: moveFromRight 1.2s ease-in-out;
+}
+
+/*NOTE: Animation */
+@keyframes moveFromLeft {
+  /* initial state */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  /* end state */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveFromRight {
+  /* initial state */
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  /* end state */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveFromButton {
+  /* initial state */
+  0% {
+    opacity: 0; /* This will apply immediately due to "backwards" */
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* pseudo class */
+/* initial state */
+.btn:link,
+.btn:visited {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  border-radius: 100px;
+
+  transition: all 0.2s;
+  font-size: 1.6rem;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* while clicking */
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn--white {
+  background-color: $color-white;
+  color: $color-grey-dark;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.btn--white::after {
+  background-color: $color-white;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn--hero {
+  animation: moveFromButton 0.5s ease-out 0.75s;
+
+  animation-fill-mode: backwards; /* Applies the first keyframe’s styles before the animation starts, even during the delay */
+}
+
+/* NOTE: Rely more on specificity than on the order of selectors */
+/* BEM */
+/* Block -  standalone component that is meaningful on its own
+Element - part of a block that has no standalone meaning
+Modifier - a diff version of a block or an element */
+
+/* Architecture */
+/* 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stysheet.
+base/
+components/
+layout/ 
+pages/
+themes/ 
+abstracts/
+vendors/ */
+
+/* NOTE: Main Sass Features */
+/* 1. Variables -> For reusable values such as colors, font-sizes, spacing, etc.
+2. Nesting -> to nest selectors inside of one another, allowing us to write less code;
+3. Operators -> for mathematical operations right inside of CSS
+4. Partials and imports -> to write CSS in differentn files and importing them all into one single file
+5. Mixins -> to write reusable pieces of CSS code
+6. Functions -> similar to mixins, with difference that they produce a value that can be used in other places
+7. Extends -> to make different selectors inherit declarations that are common to all of them.
+8. control directives -> for writing complex code using conditionals and loops */
+
+/* ✅ Use @extend when:
+You don’t need customization (no parameters).
+You want to reduce duplicate CSS and keep the file size smaller.
+
+✅ Use @mixin when:
+You need customization (passing parameters).
+You are styling different elements that don’t share a common base class.
+The styles cannot be combined in one declaration (e.g., different media queries). */
