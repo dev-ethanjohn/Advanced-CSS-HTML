@@ -1,24 +1,24 @@
-@import "abstracts/functions";
-@import "abstracts/mixins";
-@import "abstracts/variables";
+// @use "abstracts/functions";
+// @use "abstracts/mixins";
+// @use "abstracts/variables";
 
-@import "base/base";
-@import "base/animations";
-@import "base/typography";
-@import "base/utilities";
+@use "base/base";
+@use "base/animations";
+@use "base/typography";
+@use "base/utilities";
 
-@import "components/button";
+@use "components/button";
 
-@import "layout/header";
+@use "layout/header";
 
-@import "pages/home";
+@use "pages/home";
 
 /* NOTE: Rely more on specificity than on the order of selectors */ /* BEM */
 /* Block -  standalone component that is meaningful on its own
 Element - part of a block that has no standalone meaning
 Modifier - a diff version of a block or an element */
 /* Architecture */
-/* 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stysheet.
+/* 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stysheet
 base/
 components/
 layout/ 

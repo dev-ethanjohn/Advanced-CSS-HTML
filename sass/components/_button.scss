@@ -1,5 +1,5 @@
-/* pseudo class */
-/* initial state */
+@use "../abstracts" as *;
+
 .btn {
   &:link,
   &:visited {
@@ -9,7 +9,6 @@
     text-decoration: none;
     padding: 1.5rem 4rem;
     border-radius: 100px;
-
     transition: all 0.2s;
     font-size: 1.6rem;
   }
@@ -24,7 +23,6 @@
     }
   }
 
-  /* while clicking */
   &:active {
     transform: translateY(-1px);
     box-shadow: 0 0.4rem 1rem rgba($color-black, 0.2);
@@ -54,7 +52,6 @@
 
   &--hero {
     animation: moveFromButton 0.5s ease-out 0.75s;
-
-    animation-fill-mode: backwards; /* Applies the first keyframe’s styles before the animation starts, even during the delay */
+    animation-fill-mode: backwards; /* Applies the first keyframe's styles before the animation starts, even during the delay */
   }
 }

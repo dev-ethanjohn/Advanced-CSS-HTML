@@ -96,11 +96,6 @@ body {
   animation: moveFromRight 1.2s ease-in-out;
 }
 
-/* pseudo class */
-/* initial state */
-.btn {
-  /* while clicking */
-}
 .btn:link, .btn:visited {
   position: relative;
   display: inline-block;
@@ -144,7 +139,7 @@ body {
 }
 .btn--hero {
   animation: moveFromButton 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards; /* Applies the first keyframe’s styles before the animation starts, even during the delay */
+  animation-fill-mode: backwards; /* Applies the first keyframe's styles before the animation starts, even during the delay */
 }
 
 .header {
@@ -176,7 +171,7 @@ body {
 Element - part of a block that has no standalone meaning
 Modifier - a diff version of a block or an element */
 /* Architecture */
-/* 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stysheet.
+/* 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stysheet
 base/
 components/
 layout/ 
