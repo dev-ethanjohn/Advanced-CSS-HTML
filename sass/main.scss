@@ -8,7 +8,9 @@
 @use "base/utilities";
 
 @use "components/button";
+@use "components/composition";
 
+@use "layout/grid";
 @use "layout/header";
 
 @use "pages/home";
@@ -46,3 +48,10 @@ The styles cannot be combined in one declaration (e.g., different media queries)
 // "scripts": {
 //   "compile:sass": "sass sass/main.scss css/style.css -w"
 // },
+
+// NOTE: RESPONSIVE DESIGN
+
+// 1. fLUID Layouts
+// 2. Responsive Units
+// 3.Flexible images
+// 4. media queries
