@@ -13,9 +13,11 @@
 @use "components/card";
 @use "components/story";
 @use "components/bg-video";
-@use "layout/grid";
-@use "layout/header";
 @use "components/form";
+
+@use "layout/header";
+@use "layout/grid";
+@use "layout/footer";
 
 @use "pages/home";
 
