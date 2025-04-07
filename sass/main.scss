@@ -23,6 +23,7 @@
 
 @use "pages/home";
 
+@use "vendors/icon-font";
 /* NOTE: Rely more on specificity than on the order of selectors */ /* BEM */
 /* Block -  standalone component that is meaningful on its own
 Element - part of a block that has no standalone meaning
@@ -63,3 +64,8 @@ The styles cannot be combined in one declaration (e.g., different media queries)
 // 2. Responsive Units
 // 3.Flexible images
 // 4. media queries
+
+// Use cases for Responsive Images
+// 1. Solution Switching ->  decrease image resolution on smaller screen
+// 2. Destiny switching -> half the image resolution on @1 x screen from @x screen
+// 3. Art direction -> differnet image on smaller screen
